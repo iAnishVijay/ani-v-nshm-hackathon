@@ -4,8 +4,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import EventCard from './components/EventCard'
 import salsa from './images/salsa.jpeg'
-import singing from './images/singing.jpg'
+import gaming from './images/gaming.webp'
 import standUp from './images/standup.jpg'
+import agcLogo from './images/agc-logo.png'
+
 
 export default function Home() {
   return (
@@ -15,24 +17,29 @@ export default function Home() {
     <header className={styles.header}>
         <Link href="/">
           <div className={styles.logoContainer}>
-            
-            <h3 className={styles.headerHeading}>AGC Conference</h3>
+            <Image className={styles.headerLogo} src={agcLogo}>
+            </Image>
+            <h3 className={styles.headerHeading}>Analytics Global Conference</h3>
           </div>
         </Link>
-        <ul className={styles.headerMenu}>
-          <li><Link href="/"></Link></li>
-          <li><Link href="/events">Events</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
       </header>
     <main className={styles.main}>
       <h1 className={styles.eventsHeading}>Upcoming Events:</h1>
       <div className={styles.eventsContainer}>
       <EventCard image={salsa} title={"Dance"}/>
-      <EventCard image={singing} title={"Singing"}/>
+      <EventCard image={gaming} title={"Gaming"}/>
       <EventCard image={standUp} title={"Stand-Up Comedy"}/>
       </div>
+      <div className={styles.line}></div>
+      <form className={styles.registerFormContainer}>
+        <p className={styles.registerText}>Register NOW!</p>
+        <input type="text" className={styles.registerInputFields} placeholder='First Name'></input>
+        <input type="text" className={styles.registerInputFields} placeholder='Last Name'></input>
+        <input type="text" className={styles.registerInputFields} placeholder='Email'></input>
+        <input type="text" className={styles.registerInputFields} placeholder='Contact Number'></input>
+        <input type="button" className={styles.registerButton} value='Register'></input>
+
+      </form>
     </main>
     </>
   )
